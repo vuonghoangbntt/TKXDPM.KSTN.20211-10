@@ -1,5 +1,5 @@
 # TKXDPM.KSTN.20211-10
-Repo của nhóm 10 lớp KSTN cho môn Thiết kế và xây dựng phần mềm\n
+Repo của nhóm 10 lớp KSTN cho môn Thiết kế và xây dựng phần mềm<br>
 Thành viên nhóm:
 * Vương Xuân Hoàng
 * Nguyễn Đức Tú
