@@ -6,7 +6,7 @@ Thành viên nhóm:
 * Nguyễn Bá Tuân
 
 ---
-# Lab 0 - Requirment Analysis
+# Lab 0 - Requirement Analysis
 
 ## Tasks
 - Hoàn thiện biểu đồ usecase
