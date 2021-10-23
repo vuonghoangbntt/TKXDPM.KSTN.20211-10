@@ -26,3 +26,22 @@ Thành viên nhóm:
   * Đặc tả và activity dỉagram cho usecase Trả xe
 
 ## Revisions
+- No
+---
+# Lab 1 -Architecture Design
+## Tasks
+- Xác định các boundary, control và entity cho từng usecase
+- Vẽ class diagram, communication diagram và sequence diagram cho từng usecase:
+  * Xem bãi xe và xem xe (ViewBikeAndDock: gộp của xem bãi xe và xem xe)
+  * Thuê xe (RentBike)
+  * Trả xe (ReturnBike)
+- Gộp các class diagram của các usecase
+## Contributions
+- _Nguyễn Đức Tú_:
+  * Vẽ các biểu đồ cho usecase Thuê xe
+- _Vương Xuân Hoàng_:
+  * Vẽ các biểu đồ cho usecase Xem bãi xe và xem xe
+  * Gộp class diagram của các usecase
+- _Nguyễn Bá Tuân_:
+  * Vẽ các biểu đồ cho usecase Trả xe
+ ## Revisions
