@@ -32,9 +32,9 @@ Thành viên nhóm:
 ## Tasks
 - Xác định các boundary, control và entity cho từng usecase
 - Vẽ class diagram, communication diagram và sequence diagram cho từng usecase:
- * Xem bãi xe và xem xe (ViewBikeAndDock: gộp của xem bãi xe và xem xe)
- * Thuê xe (RentBike)
- * Trả xe (ReturnBike)
+  * Xem bãi xe và xem xe (ViewBikeAndDock: gộp của xem bãi xe và xem xe)
+  * Thuê xe (RentBike)
+  * Trả xe (ReturnBike)
 - Gộp các class diagram của các usecase
 ## Contributions
 - _Nguyễn Đức Tú_:
