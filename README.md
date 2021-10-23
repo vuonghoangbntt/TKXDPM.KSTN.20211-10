@@ -26,7 +26,7 @@ Thành viên nhóm:
   * Đặc tả và activity dỉagram cho usecase Trả xe
 
 ## Revisions
-No
+- No
 ---
 # Lab 1 -Architecture Design
 ## Tasks
