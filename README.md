@@ -43,5 +43,5 @@ Thành viên nhóm:
   * Vẽ các biểu đồ cho usecase Xem bãi xe và xem xe
   * Gộp class diagram của các usecase
 - _Nguyễn Bá Tuân_:
-  * Vẽ các biểu đồ cho usecase Trả xe
+  * Vẽ các biểu đồ cho usecase Trả xe và usecase Thanh toán
  ## Revisions
