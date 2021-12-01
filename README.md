@@ -67,3 +67,22 @@ Thành viên nhóm:
 - _Nguyễn Bá Tuân_:
   * Vẽ các giao diện và đặc tả cho usecase Trả xe
  ## Revisions
+- Nguyễn Đức Tú review Nguyễn Bá Tuân
+- Nguyễn Bá Tuân review Vương Xuân Hoàng
+- Vương Xuân Hoàng review Nguyễn Đức Tú
+
+---
+# Lab 03 - Class Design and Data Modeling
+## Tasks
+- Xác định các lớp
+- Vẽ các diagram cho class design
+- Đặc tả class
+- Mô hình hóa dữ liệu và xây dựng cơ sở dữ liệu
+## Contributions
+- _Nguyễn Đức Tú_:
+  * Làm phần data modeling
+- _Vương Xuân Hoàng_:
+  * Vẽ các diagram cho phần Class Design
+- _Nguyễn Bá Tuân_:
+  * Làm phần đặc tả class
+## Revisions
