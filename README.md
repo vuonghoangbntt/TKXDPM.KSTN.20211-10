@@ -45,3 +45,44 @@ Thành viên nhóm:
 - _Nguyễn Bá Tuân_:
   * Vẽ các biểu đồ cho usecase Trả xe và usecase Thanh toán
  ## Revisions
+- Nguyễn Đức Tú review Nguyễn Bá Tuân
+- Nguyễn Bá Tuân review Vương Xuân Hoàng
+- Vương Xuân Hoàng review Nguyễn Đức Tú
+---
+# Lab 2 -Interface Design
+## Tasks
+- Xác định các giao diện cho từng usecase
+- Xác định các subsystem
+- Vẽ các giao diện và đặc tả giao diện cho từng usecase
+- Vẽ các biểu đồ diagram cho subsystem
+## Contributions
+- _Nguyễn Đức Tú_:
+  * Vẽ các giao diện và đặc tả cho usecase Thuê xe
+  * Thiết kế giao diện chung cho app
+- _Vương Xuân Hoàng_:
+  * Vẽ các giao diện và đặc tả cho usecase Xem bãi xe và Xem xe
+  * Vẽ giao diện cho Home và Splash
+  * Vẽ biểu đồ dịch chuyển màn hình
+  * Subsystem Interbank
+- _Nguyễn Bá Tuân_:
+  * Vẽ các giao diện và đặc tả cho usecase Trả xe
+ ## Revisions
+- Nguyễn Đức Tú review Nguyễn Bá Tuân
+- Nguyễn Bá Tuân review Vương Xuân Hoàng
+- Vương Xuân Hoàng review Nguyễn Đức Tú
+
+---
+# Lab 03 - Class Design and Data Modeling
+## Tasks
+- Xác định các lớp
+- Vẽ các diagram cho class design
+- Đặc tả class
+- Mô hình hóa dữ liệu và xây dựng cơ sở dữ liệu
+## Contributions
+- _Nguyễn Đức Tú_:
+  * Làm phần data modeling
+- _Vương Xuân Hoàng_:
+  * Vẽ các diagram cho phần Class Design
+- _Nguyễn Bá Tuân_:
+  * Làm phần đặc tả class
+## Revisions
