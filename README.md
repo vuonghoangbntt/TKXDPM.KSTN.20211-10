@@ -84,5 +84,5 @@ Thành viên nhóm:
 - _Vương Xuân Hoàng_:
   * Vẽ các diagram cho phần Class Design
 - _Nguyễn Bá Tuân_:
-  * Làm phần đặc tả class
+  * Làm phần đặc tả class (Tuân bị lỗi git nên file class description do Hoàng up lên)
 ## Revisions
