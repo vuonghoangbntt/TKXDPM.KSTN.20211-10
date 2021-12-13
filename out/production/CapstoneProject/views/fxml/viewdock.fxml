@@ -37,25 +37,6 @@
             </Text>
          </children>
       </Pane>
-      <Pane layoutY="98.0" prefHeight="49.0" prefWidth="150.0">
-         <children>
-            <ImageView fx:id="home" fitHeight="49.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icon3.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="rentalBike" fitHeight="49.0" fitWidth="57.0" layoutX="51.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icon.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="card" fitHeight="49.0" fitWidth="47.0" layoutX="100.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@icon2.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
       <Pane layoutX="-4.0" layoutY="98.0" prefHeight="331.0" prefWidth="665.0">
          <children>
             <ScrollPane layoutX="283.0" layoutY="51.0" prefHeight="279.0" prefWidth="382.0">
@@ -101,6 +82,25 @@
                   <Image url="@../../../AIMS-Student/src/controller/views/media/nguyenlm/DriverD/Documents/UNIVERSITY/PERSONAL/PROJECT/Java/TA-TKXDPM/AIMS/assets/images/book2." />
                </image>
             </ImageView>
+            <Pane layoutX="11.0" prefHeight="49.0" prefWidth="150.0">
+               <children>
+                  <ImageView fx:id="home" fitHeight="49.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="rentalBike" fitHeight="49.0" fitWidth="57.0" layoutX="51.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="card" fitHeight="49.0" fitWidth="47.0" layoutX="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon2.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>

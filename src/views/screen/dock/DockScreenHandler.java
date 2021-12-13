@@ -51,7 +51,6 @@ public class DockScreenHandler extends BaseScreenHandler{
     public DockScreenHandler(Stage stage, String screenPath, Dock dock) throws IOException {
         super(stage,screenPath);
 
-        setMenuImage();
         setImage();
 
         this.dock = dock;
@@ -86,6 +85,7 @@ public class DockScreenHandler extends BaseScreenHandler{
             e.printStackTrace();
             throw new IOException();
         }
+        setMenuImage();
     }
 
     private void setDockInfo() {
