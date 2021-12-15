@@ -46,8 +46,17 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     }
 
     @Override
+    public void show() {
+        setupScreen();
+        super.show();
+    }
+
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setBController(new HomeController());
+    }
+
+    public void setupScreen(){
         try{
             List medium = getBController().getAllDock();
             this.homeItems = new ArrayList<>();
@@ -65,9 +74,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         });
         addDockHome();
     }
-
     private void addDockHome() {
         //ArrayList dockItems = (ArrayList)((ArrayList) homeItems).clone();
+        vboxDock.getChildren().clear();
         for(Object object: this.homeItems){
             DockHandler dock = (DockHandler) object;
             dock.dockView.setOnMouseClicked(e -> {

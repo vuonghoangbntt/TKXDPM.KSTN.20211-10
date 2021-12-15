@@ -36,7 +36,6 @@ public class Dock {
         this.imageURL = ImageURL;
         this.area = area;
         this.lstBike = Bike.getBikeByDockID(id);
-        LOGGER.info("Dock "+dockId+" have "+lstBike.size());
     }
     public static List getAllDock() throws SQLException {
         Statement stm = AIMSDB.getConnection().createStatement();

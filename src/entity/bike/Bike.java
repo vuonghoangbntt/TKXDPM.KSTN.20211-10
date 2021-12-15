@@ -84,7 +84,12 @@ public class Bike {
             this.setStatus(res.getInt("status"));
         }
     }
-
+    public void rentBike() throws SQLException{
+        String sql = "UPDATE bike SET status = -1 WHERE bikeCode = "+id;
+        Statement stm = AIMSDB.getConnection().createStatement();
+        stm.execute(sql);
+        setStatus(-1);
+    }
     public String getBikeStatus(){
         if(status == 1){
             return "available";

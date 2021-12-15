@@ -109,7 +109,11 @@ public class BikeScreenHandler extends BaseScreenHandler {
 
         btnRentBike.setOnMouseClicked(e -> {
             try{
+                //bike.setStatus(-1);
+                bike.rentBike();
+                setBikeInfo();
                 PopupScreen.error("Chức năng chưa được hỗ trợ!");
+
             }catch (Exception ex){
                 LOGGER.info("Pop up failed!");
                 ex.printStackTrace();
