@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="RED" layoutX="239.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THUÊ XE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Text>
+      <Pane layoutX="41.0" layoutY="149.0" prefHeight="250.0" prefWidth="518.0">
+         <children>
+            <Text fill="#0023ff" layoutX="149.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quý khách vui lòng nhập mã xe">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="btnRent" defaultButton="true" layoutX="318.0" layoutY="145.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="84.0" text="Thuê xe" textFill="#0d00ff">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCancle" defaultButton="true" layoutX="402.0" layoutY="145.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="84.0" text="Hủy" textFill="#0d00ff">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <TextField fx:id="barCode" editable="false" layoutX="116.0" layoutY="88.0" prefHeight="25.0" prefWidth="286.0" text="Nhập mã xe">
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor></TextField>
+         </children>
+      </Pane>
+      <ImageView fx:id="capstoneImage" fitHeight="97.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="97.0" layoutY="-1.0" prefHeight="97.0" prefWidth="503.0" style="-fx-background-color: F7FF00;">
+         <children>
+            <Text fill="#12a807" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KHÔNG CÓ XE ĐI">
+               <font>
+                  <Font name="Broadway" size="27.0" />
+               </font>
+            </Text>
+            <Text fill="#12a807" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KHÔNG LO, ĐÃ CÓ ECOBIKE">
+               <font>
+                  <Font name="Broadway" size="27.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <ImageView fx:id="home" fitHeight="49.0" fitWidth="57.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rentalBike" fitHeight="49.0" fitWidth="57.0" layoutX="51.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="card" fitHeight="49.0" fitWidth="57.0" layoutX="100.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

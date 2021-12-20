@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="659.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="RED" layoutX="224.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="capstoneImage" fitHeight="97.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/images/Logo.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="97.0" layoutY="-1.0" prefHeight="97.0" prefWidth="564.0" style="-fx-background-color: F7FF00;">
+         <children>
+            <Text fill="#12a807" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KHÔNG CÓ XE ĐI">
+               <font>
+                  <Font name="Broadway" size="27.0" />
+               </font>
+            </Text>
+            <Text fill="#12a807" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KHÔNG LO, ĐÃ CÓ ECOBIKE">
+               <font>
+                  <Font name="Broadway" size="27.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="-4.0" layoutY="98.0" prefHeight="331.0" prefWidth="665.0">
+         <children>
+            <ScrollPane layoutX="283.0" layoutY="51.0" prefHeight="279.0" prefWidth="382.0">
+               <content>
+                  <VBox fx:id="vboxBike" prefHeight="321.0" prefWidth="382.0" />
+               </content>
+            </ScrollPane>
+            <Label fx:id="dockName" alignment="CENTER" layoutX="15.0" layoutY="65.0" prefHeight="21.0" prefWidth="256.0" text="Bãi xe Bách Khoa 1" textFill="#c00505">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Pane layoutX="11.0" layoutY="205.0" prefHeight="112.0" prefWidth="264.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="6.0" layoutY="35.0" prefHeight="21.0" prefWidth="47.0" text="Addr">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="-3.0" layoutY="56.0" prefHeight="21.0" prefWidth="68.0" text="Bike">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="5.0" layoutY="77.0" prefHeight="21.0" prefWidth="47.0" text="Area">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dockAddress" layoutX="64.0" layoutY="37.0" prefHeight="17.0" prefWidth="215.0" text="1, Dai Co Viet, Hai Ba Trung, Ha Noi" />
+                  <Label fx:id="dockNumOfBike" layoutX="64.0" layoutY="58.0" prefHeight="17.0" prefWidth="205.0" text="10" />
+                  <Label fx:id="dockArea" layoutX="64.0" layoutY="79.0" prefHeight="17.0" prefWidth="215.0" text="100" />
+               </children>
+            </Pane>
+            <Text fill="RED" layoutX="283.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Xe trong bãi">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Line endX="-58.799957275390625" endY="293.3333435058594" layoutX="331.0" layoutY="38.0" startX="-58.799957275390625" startY="-38.00000762939453" />
+            <ImageView fx:id="dockImage" fitHeight="142.0" fitWidth="160.0" layoutX="63.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../AIMS-Student/src/controller/views/media/nguyenlm/DriverD/Documents/UNIVERSITY/PERSONAL/PROJECT/Java/TA-TKXDPM/AIMS/assets/images/book2." />
+               </image>
+            </ImageView>
+            <Pane layoutX="11.0" prefHeight="49.0" prefWidth="150.0">
+               <children>
+                  <ImageView fx:id="home" fitHeight="49.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="rentalBike" fitHeight="49.0" fitWidth="57.0" layoutX="51.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="card" fitHeight="49.0" fitWidth="47.0" layoutX="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon2.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
