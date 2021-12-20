@@ -90,6 +90,11 @@ public class Bike {
         stm.execute(sql);
         setStatus(-1);
     }
+    public void returnBike() throws SQLException{
+        String sql = "UPDATE bike SET status = 1,dockID = "+this.dockID+" WHERE bikeCode = "+this.id;
+        Statement stm = AIMSDB.getConnection().createStatement();
+        stm.execute(sql);
+    }
     public String getBikeStatus(){
         if(status == 1){
             return "available";

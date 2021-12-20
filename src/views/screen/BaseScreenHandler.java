@@ -3,6 +3,8 @@ package views.screen;
 import controller.BaseController;
 import controller.CardLoginController;
 import controller.ViewCardController;
+import entity.bike.Bike;
+import entity.payment.RentTransaction;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,9 +15,11 @@ import views.screen.home.HomeScreenHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import views.screen.popup.PopupScreen;
+import views.screen.rent.ViewBikeRentHandler;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Hashtable;
 
 public class BaseScreenHandler extends FXMLScreenHandler {
@@ -61,8 +65,23 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 
 		rentalBike.setOnMouseClicked(e->{
 			try{
-				PopupScreen.error("Rental Bike is not implemented yet!!");
-			} catch (IOException ex) {
+				if(Configs.card!=null && Configs.bike==null){
+					Configs.rentTransaction = RentTransaction.getRentTransactionByCard(Configs.card.getCardCode());
+					if(Configs.rentTransaction!=null) {
+						Configs.bike = Bike.getBikeById(Configs.rentTransaction.getBikeCode());
+					}
+				}
+				if(Configs.card==null){
+					PopupScreen.error("Login to use this function");
+				}else if(Configs.bike==null){
+					PopupScreen.error("You have no bike rent!!!");
+				}else{
+					ViewBikeRentHandler viewBikeRentHandler = new ViewBikeRentHandler(this.stage, Configs.VIEW_BIKE_RENT_SCREEN_PATH, Configs.bike);
+					viewBikeRentHandler.setHomeScreenHandler(this.homeScreenHandler);
+					viewBikeRentHandler.setScreenTitle("Your Rental Bike");
+					viewBikeRentHandler.show();
+				}
+			} catch (IOException|SQLException ex) {
 				ex.printStackTrace();
 			}
 		});

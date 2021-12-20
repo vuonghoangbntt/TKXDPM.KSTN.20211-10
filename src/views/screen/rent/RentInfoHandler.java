@@ -100,7 +100,7 @@ public class RentInfoHandler extends BaseScreenHandler {
                 // Thanh toán
                 RentTransaction rentTransaction = new RentTransaction();
                 rentTransaction.setBikeCode(bike.getId());
-                rentTransaction.setDepositeCost(bike.getValueOfBike()/10);
+                rentTransaction.setDepositeCost(bike.getValueOfBike()*4/10);
                 rentTransaction.setRentCardCode(Configs.card.getCardCode());
 
                 PaymentScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN, rentTransaction);

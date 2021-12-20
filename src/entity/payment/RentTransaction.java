@@ -1,5 +1,6 @@
 package entity.payment;
 
+import entity.bike.Bike;
 import entity.db.AIMSDB;
 import utils.Utils;
 
@@ -31,6 +32,15 @@ public class RentTransaction {
         setRentalCode();
     }
 
+    public RentTransaction(int rentalCode, String rentCardCode, String rentTime, int depositeCost, String returnTime, int bikeCode, int rentCost){
+        this.rentalCode = rentalCode;
+        this.rentCardCode = rentCardCode;
+        this.rentTime = rentTime;
+        this.depositeCost = depositeCost;
+        this.returnTime = returnTime;
+        this.bikeCode = bikeCode;
+        this.rentCost = rentCost;
+    }
     public boolean startRent() throws SQLException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         Date date = new Date();
@@ -39,21 +49,23 @@ public class RentTransaction {
     }
 
     private boolean createRentTransaction() throws SQLException {
-        String sql = String.format("INSERT INTO renttransaction (rentalCode, rentCardCode, rentTime, bikeCode, depositeCost) VALUES (%d, %s,'%s',%d,%d)",this.rentalCode,this.rentCardCode, this.rentTime, this.bikeCode, this.depositeCost);
+        String sql = String.format("INSERT INTO renttransaction (rentalCode, rentCardCode, rentTime, bikeCode, depositeCost) VALUES (%d, '%s','%s',%d,%d)",this.rentalCode,this.rentCardCode, this.rentTime, this.bikeCode, this.depositeCost);
         LOGGER.info(sql);
         Statement stm = AIMSDB.getConnection().createStatement();
         boolean status = stm.execute(sql);
         return status;
     }
 
-    private boolean endRent() throws SQLException {
-        Date date=java.util.Calendar.getInstance().getTime();
-        setReturnTime(date.toString());
-        return updateRentTransaction();
+    public boolean endRent() throws SQLException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        Date date = new Date();
+        setReturnTime(formatter.format(date));
+        return true;
     }
 
-    private boolean updateRentTransaction() throws SQLException {
-        String sql = String.format("UPDATE renttransaction SET returnTime = %s, rentCost = %d WHERE rentalCode = %d", returnTime, rentCost, rentalCode);
+    public boolean updateRentTransaction() throws SQLException {
+        String sql = String.format("UPDATE renttransaction SET returnTime = '%s', rentCost = %d WHERE rentalCode = %d", returnTime, rentCost, rentalCode);
+        LOGGER.info(sql);
         Statement stm = AIMSDB.getConnection().createStatement();
         boolean status = stm.execute(sql);
         return status;
@@ -72,6 +84,19 @@ public class RentTransaction {
         }else{
             this.rentalCode = 1;
         }
+    }
+
+    public static RentTransaction getRentTransactionByCard(String cardCode) throws SQLException{
+        String sql = "SELECT * FROM renttransaction WHERE returnTime IS NULL";
+        Statement stm = AIMSDB.getConnection().createStatement();
+        ResultSet res = stm.executeQuery(sql);
+        while(res.next()){
+            if(res.getString("rentCardCode").equals(cardCode)){
+                LOGGER.info("Get bike code: "+res.getInt("bikeCode"));
+                return new RentTransaction(res.getInt("rentalCode"),res.getString("rentCardCode"), res.getString("rentTime"), res.getInt("depositeCost"), null, res.getInt("bikeCode"), -1);
+            }
+        }
+        return null;
     }
 
     public String getRentTime() {
@@ -121,4 +146,6 @@ public class RentTransaction {
     public void setRentCardCode(String rentCardCode) {
         this.rentCardCode = rentCardCode;
     }
+
+
 }

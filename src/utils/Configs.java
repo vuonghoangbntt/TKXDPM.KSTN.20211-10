@@ -1,6 +1,8 @@
 package utils;
 
+import entity.bike.Bike;
 import entity.card.Card;
+import entity.payment.RentTransaction;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -46,7 +48,10 @@ public class Configs {
 
 	// User info
 	public static Card card = null;
-
+	// User rental Bike
+	public static Bike bike = null;
+	// User transaction
+	public static RentTransaction rentTransaction = null;
 	// static resource
 	public static final String IMAGE_PATH = "assets/images";
 	public static final String DOCK_BIKE_PATH = "/views/fxml/bike_dock.fxml";
@@ -62,7 +67,8 @@ public class Configs {
 	public static final String HOME_PATH  = "/views/fxml/home.fxml";
 	public static final String HOME_DOCK_PATH = "/views/fxml/dock_home.fxml";
 	public static final String POPUP_PATH = "/views/fxml/popup.fxml";
-	public static final String RUSH_SHIPPING_SCREEN = "/controller/views/fxml/rush_form.fxml";
+	public static final String VIEW_BIKE_RENT_SCREEN_PATH = "/views/fxml/viewbikerent.fxml";
+	public static final String RETURN_BIKE_SCREEN_PATH = "/views/fxml/returnbike.fxml";
 
 	public static Font REGULAR_FONT = Font.font("Segoe UI", FontWeight.NORMAL, FontPosture.REGULAR, 24);
 

@@ -19,6 +19,8 @@ import java.sql.SQLException;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import static java.lang.Math.abs;
+
 public class PaymentScreenHandler extends BaseScreenHandler {
     public static Logger LOGGER = Utils.getLogger(PaymentScreenHandler.class.getName());
 
@@ -49,10 +51,57 @@ public class PaymentScreenHandler extends BaseScreenHandler {
         setImage();
 
         this.rentTransaction = rentTransaction;
-        setUp();
+        if(rentTransaction.getReturnTime()!=null) {
+            setUpReturn();
+        }else{
+            setUpRent();
+        }
     }
 
-    private void setUp() {
+    private void setUpReturn(){
+        int total = rentTransaction.getRentCost() - rentTransaction.getDepositeCost();
+        String method;
+        if(total>0){
+            method  = "pay";
+        }else{
+            method = "refund";
+        }
+        total = abs(total);
+        amount.setText(method+" "+total +"VND");
+        amount.setEditable(false);
+
+        btnConfirm.setOnMouseClicked(e -> {
+            try{
+                confirmToReturnBike(method,abs(rentTransaction.getRentCost() - rentTransaction.getDepositeCost()));
+
+                // Update bike and save transaction
+                Configs.bike.returnBike();
+                Configs.rentTransaction.updateRentTransaction();
+                // End rent session
+                Configs.bike = null;
+                Configs.rentTransaction = null;
+            } catch (Exception ex) {
+                //PopupScreen.error("Rent fail!");
+                LOGGER.info("Rent fail!!!");
+                ex.printStackTrace();
+            }
+        });
+    }
+
+    private void confirmToReturnBike(String method, int total) throws IOException {
+        String contents = "Giao dịch trả xe";
+        PaymentController ctrl = (PaymentController) getBController();
+        Map<String, String> response = ctrl.payOrder(total, contents, method, cardCode.getText(), cardHolderName.getText(),
+                cardExpirationDate.getText(), cardSecurityCode.getText());
+        LOGGER.info(" "+response);
+        ResultScreeenHandler resultScreen = new ResultScreeenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE") );
+        resultScreen.setPreviousScreen(this);
+        resultScreen.setHomeScreenHandler(homeScreenHandler);
+        resultScreen.setScreenTitle("Result Screen");
+        resultScreen.show();
+    }
+
+    private void setUpRent() {
         //LOGGER.info("Deposite cost: "+rentTransaction.getDepositeCost());
         amount.setText(rentTransaction.getDepositeCost() +" VND");
         amount.setEditable(false);

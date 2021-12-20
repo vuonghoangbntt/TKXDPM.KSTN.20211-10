@@ -15,9 +15,6 @@ public class InterbankTransaction {
 
     }
 
-    public String getCardCode() {
-        return cardCode;
-    }
 
     public double getAmount() {
         return amount;
