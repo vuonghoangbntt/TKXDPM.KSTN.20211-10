@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class Bike {
-    private static Logger LOGGER = Utils.getLogger(Bike.class.getName());
+    private static final Logger LOGGER = Utils.getLogger(Bike.class.getName());
 
     protected Statement stm;
     protected int id;

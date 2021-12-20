@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class Dock {
-    private static Logger LOGGER = Utils.getLogger(Dock.class.getName());
+    private static final Logger LOGGER = Utils.getLogger(Dock.class.getName());
 
     protected Statement stm;
     protected int dockId;

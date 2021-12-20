@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public class AIMSDB {
 
-	private static Logger LOGGER = Utils.getLogger(Connection.class.getName());
+	private static final Logger LOGGER = Utils.getLogger(Connection.class.getName());
 	private static Connection connect;
 
     public static Connection getConnection() {

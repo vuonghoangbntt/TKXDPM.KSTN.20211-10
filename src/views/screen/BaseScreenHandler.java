@@ -1,10 +1,14 @@
 package views.screen;
 
 import controller.BaseController;
+import controller.CardLoginController;
+import controller.ViewCardController;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import utils.Configs;
+import views.screen.card.CardLoginScreenHandler;
+import views.screen.card.ViewCardScreenHandler;
 import views.screen.home.HomeScreenHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -20,6 +24,8 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 	private BaseScreenHandler prev;
 	protected final Stage stage;
 	protected HomeScreenHandler homeScreenHandler;
+	protected CardLoginScreenHandler cardLoginScreenHandler;
+	protected ViewCardScreenHandler viewCardScreenHandler;
 	protected Hashtable<String, String> messages;
 	private BaseController bController;
 
@@ -55,7 +61,7 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 
 		rentalBike.setOnMouseClicked(e->{
 			try{
-				PopupScreen.error("View Rental Bike is not implemented yet!!");
+				PopupScreen.error("Rental Bike is not implemented yet!!");
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
@@ -63,7 +69,11 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 
 		card.setOnMouseClicked(e->{
 			try{
-				PopupScreen.error("View Card is not implemented yet!!");
+				if(Configs.card!=null){
+					cardViewShow();
+				}else {
+					cardLoginShow();
+				}
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
@@ -84,6 +94,24 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 		card.setImage(img3);
 	}
 
+	protected void cardLoginShow() throws IOException {
+		if (this.cardLoginScreenHandler == null) {
+			this.cardLoginScreenHandler = new CardLoginScreenHandler(this.stage, Configs.CARD_LOGIN_SCREEN_PATH);
+			this.cardLoginScreenHandler.setBController(new CardLoginController());
+			this.cardLoginScreenHandler.setHomeScreenHandler(this.homeScreenHandler);
+		}
+		this.cardLoginScreenHandler.show();
+	}
+
+	protected void cardViewShow() throws IOException {
+		if (this.viewCardScreenHandler == null) {
+			this.cardLoginScreenHandler = null;
+			this.viewCardScreenHandler = new ViewCardScreenHandler(this.stage, Configs.CARD_SCREEN_PATH);
+			this.viewCardScreenHandler.setBController(new ViewCardController());
+			this.viewCardScreenHandler.setHomeScreenHandler(this.homeScreenHandler);
+		}
+		this.viewCardScreenHandler.show();
+	}
 	public void setPreviousScreen(BaseScreenHandler prev) {
 		this.prev = prev;
 	}
@@ -131,5 +159,21 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 		Image img1 = new Image(file1.toURI().toString());
 		capstoneImage.setImage(img1);
 
+	}
+
+	public CardLoginScreenHandler getCardLoginScreenHandler() {
+		return cardLoginScreenHandler;
+	}
+
+	public void setCardLoginScreenHandler(CardLoginScreenHandler cardLoginScreenHandler) {
+		this.cardLoginScreenHandler = cardLoginScreenHandler;
+	}
+
+	public ViewCardScreenHandler getViewCardScreenHandler() {
+		return viewCardScreenHandler;
+	}
+
+	public void setViewCardScreenHandler(ViewCardScreenHandler viewCardScreenHandler) {
+		this.viewCardScreenHandler = viewCardScreenHandler;
 	}
 }

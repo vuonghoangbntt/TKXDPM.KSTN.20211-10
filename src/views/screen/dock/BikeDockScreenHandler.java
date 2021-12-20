@@ -34,8 +34,8 @@ public class BikeDockScreenHandler extends FXMLScreenHandler {
     @FXML
     protected Button bikeView;
 
-    private static Logger LOGGER = Utils.getLogger(BikeDockScreenHandler.class.getName());
-    private Bike bike;
+    private static final Logger LOGGER = Utils.getLogger(BikeDockScreenHandler.class.getName());
+    private final Bike bike;
 
     public BikeDockScreenHandler(String screenPath, Bike bike) throws IOException {
         super(screenPath);

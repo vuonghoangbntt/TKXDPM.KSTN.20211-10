@@ -39,9 +39,9 @@ public class DockHandler extends FXMLScreenHandler {
     @FXML
     protected Button dockView;
 
-    private static Logger LOGGER = Utils.getLogger(DockHandler.class.getName());
+    private static final Logger LOGGER = Utils.getLogger(DockHandler.class.getName());
     private Dock dock;
-    private HomeScreenHandler home;
+    private final HomeScreenHandler home;
 
     public DockHandler(String screenPath, Dock dock, HomeScreenHandler home, Stage stage) throws SQLException, IOException{
         super(screenPath);

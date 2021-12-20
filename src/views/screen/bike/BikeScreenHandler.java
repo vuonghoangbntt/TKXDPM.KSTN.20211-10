@@ -1,5 +1,6 @@
 package views.screen.bike;
 
+import controller.ViewBikeController;
 import entity.bike.Bike;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +13,7 @@ import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.dock.BikeDockScreenHandler;
 import views.screen.popup.PopupScreen;
+import views.screen.rent.RentHandler;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,7 +55,7 @@ public class BikeScreenHandler extends BaseScreenHandler {
     @FXML
     private Button btnRentBike;
 
-    private Bike bike;
+    private final Bike bike;
     public BikeScreenHandler(Stage stage, String screenPath, Bike bike) throws IOException, SQLException {
         super(stage, screenPath);
         setMenuImage();
@@ -110,12 +112,22 @@ public class BikeScreenHandler extends BaseScreenHandler {
         btnRentBike.setOnMouseClicked(e -> {
             try{
                 //bike.setStatus(-1);
-                bike.rentBike();
-                setBikeInfo();
-                PopupScreen.error("Chức năng chưa được hỗ trợ!");
+                //bike.rentBike();
+                //setBikeInfo();
+                LOGGER.info("User click to view barcode");
+                if(Configs.card!=null) {
+                    RentHandler barCode = new RentHandler(this.stage, Configs.RENT_BIKE_PATH, bike);
+                    barCode.setBController(new ViewBikeController());
+                    barCode.setScreenTitle("Bar Code");
+                    barCode.setPreviousScreen(this);
+                    barCode.setHomeScreenHandler(this.homeScreenHandler);
+                    barCode.show();
+                }else{
+                    PopupScreen.error("Đăng nhập để thuê xe!");
+                }
 
             }catch (Exception ex){
-                LOGGER.info("Pop up failed!");
+                LOGGER.info("Rent bike failed!");
                 ex.printStackTrace();
             }
         });

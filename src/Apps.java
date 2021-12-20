@@ -23,7 +23,7 @@ public class Apps extends Application {
     public void start(Stage primaryStage) {
         try {
             // initialize the scene
-            StackPane root = (StackPane) FXMLLoader.load(getClass().getResource(Configs.SPLASH_SCREEN_PATH));
+            StackPane root = FXMLLoader.load(getClass().getResource(Configs.SPLASH_SCREEN_PATH));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -51,6 +51,7 @@ public class Apps extends Application {
                 try {
                     HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
                     homeHandler.setScreenTitle("Home Screen");
+                    homeHandler.setHomeScreenHandler(homeHandler);
                     homeHandler.show();
                 } catch (IOException e1) {
                     e1.printStackTrace();

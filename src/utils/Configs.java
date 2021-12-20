@@ -1,8 +1,12 @@
 package utils;
 
+import entity.card.Card;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author nguyenlm Contains the configs for AIMS Project
@@ -13,7 +17,10 @@ public class Configs {
 	public static final String GET_VEHICLECODE_URL = "https://ecopark-system-api.herokuapp.com/api/get-vehicle-code/1rjdfasdfas";
 	public static final String PROCESS_TRANSACTION_URL = "https://ecopark-system-api.herokuapp.com/api/card/processTransaction";
 	public static final String RESET_URL = "https://ecopark-system-api.herokuapp.com/api/card/reset";
-
+	public static final Map<String, String> PAYMENT_RESULT_IMAGE = Map.of(
+			"PAYMENT SUCCESSFUL!", "tickgreen.png",
+			"PAYMENT FAILED!", "tickerror.png"
+	);
 	// demo data
 	public static final String POST_DATA = "{"
 			+ " \"secretKey\": \"BUXj/7/gHHI=\" ,"
@@ -37,15 +44,21 @@ public class Configs {
 	public static String CURRENCY = "VND";
 	public static float PERCENT_VAT = 10;
 
+	// User info
+	public static Card card = null;
+
 	// static resource
 	public static final String IMAGE_PATH = "assets/images";
 	public static final String DOCK_BIKE_PATH = "/views/fxml/bike_dock.fxml";
 	public static final String DOCK_SCREEN_PATH = "/views/fxml/viewdock.fxml";
+	public static final String RESULT_SCREEN_PATH = "/views/fxml/success_payment.fxml";
 	public static final String SPLASH_SCREEN_PATH = "/views/fxml/splash.fxml";
 	public static final String BIKE_SCREEN_PATH = "/views/fxml/viewbike.fxml";
-	public static final String CART_SCREEN_PATH = "/controller/views/fxml/cart.fxml";
-	public static final String SHIPPING_SCREEN_PATH = "/controller/views/fxml/shipping.fxml";
-	public static final String CART_MEDIA_PATH = "/controller/views/fxml/media_cart.fxml";
+	public static final String CARD_LOGIN_SCREEN_PATH = "/views/fxml/cardlogin.fxml";
+	public static final String CARD_SCREEN_PATH = "/views/fxml/viewcard.fxml";
+	public static final String INVOICE_PATH = "/views/fxml/invoice.fxml";
+	public static final String RENT_BIKE_PATH = "/views/fxml/rentbike.fxml";
+	public static final String PAYMENT_SCREEN = "/views/fxml/payment.fxml";
 	public static final String HOME_PATH  = "/views/fxml/home.fxml";
 	public static final String HOME_DOCK_PATH = "/views/fxml/dock_home.fxml";
 	public static final String POPUP_PATH = "/views/fxml/popup.fxml";

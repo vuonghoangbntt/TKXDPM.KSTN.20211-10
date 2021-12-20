@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="659.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="capstoneImage" fitHeight="97.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/images/Logo.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="97.0" layoutY="-1.0" prefHeight="97.0" prefWidth="564.0" style="-fx-background-color: F7FF00;">
+         <children>
+            <Text fill="#12a807" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KHÔNG CÓ XE ĐI">
+               <font>
+                  <Font name="Broadway" size="27.0" />
+               </font>
+            </Text>
+            <Text fill="#12a807" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KHÔNG LO, ĐÃ CÓ ECOBIKE">
+               <font>
+                  <Font name="Broadway" size="27.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutY="96.0" prefHeight="49.0" prefWidth="150.0">
+         <children>
+            <ImageView fx:id="home" fitHeight="49.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/images/icon3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rentalBike" fitHeight="49.0" fitWidth="57.0" layoutX="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/images/icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card" fitHeight="49.0" fitWidth="47.0" layoutX="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/images/icon2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Text fill="RED" layoutX="187.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kết quả giao dịch">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Text>
+      <Label fx:id="resultLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="238.0" layoutY="155.0" prefHeight="195.0" prefWidth="389.0" text="Payment Message" textAlignment="CENTER" textFill="#5091e6">
+         <font>
+            <Font name="Calibri Bold" size="23.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="resultImage" fitHeight="150.0" fitWidth="200.0" layoutX="30.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

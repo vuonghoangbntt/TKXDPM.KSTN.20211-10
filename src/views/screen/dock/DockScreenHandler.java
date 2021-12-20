@@ -4,7 +4,6 @@ import controller.ViewBikeController;
 import entity.bike.Bike;
 import entity.dock.Dock;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,14 +13,11 @@ import utils.Configs;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.bike.BikeScreenHandler;
-import views.screen.popup.PopupScreen;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 public class DockScreenHandler extends BaseScreenHandler{
@@ -45,8 +41,8 @@ public class DockScreenHandler extends BaseScreenHandler{
     @FXML
     private ImageView dockImage;
 
-    private Dock dock;
-    private List dockItems;
+    private final Dock dock;
+    private final List dockItems;
 
     public DockScreenHandler(Stage stage, String screenPath, Dock dock) throws IOException {
         super(stage,screenPath);

@@ -23,7 +23,7 @@ public class API {
 	/**
 	 * Thuoc tinh giup log thong tin ra console
 	 */
-	private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
+	private static final Logger LOGGER = Utils.getLogger(Utils.class.getName());
 	/**
 	 * Phuong thuc giup goi cac api dang GET
 	 * @param url: duong dan toi server can request
@@ -130,7 +130,7 @@ public class API {
 		while ((inputLine = in.readLine()) != null)
 			response.append(inputLine);
 		in.close();
-		LOGGER.info("Respone Info: " + response.substring(0, response.length()-1).toString());
-		return response.substring(0, response.length()-1).toString();
+		LOGGER.info("Respone Info: " + response.substring(0, response.length()-1));
+		return response.substring(0, response.length()-1);
 	}
 }

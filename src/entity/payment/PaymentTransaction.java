@@ -1,12 +1,12 @@
 package entity.payment;
 
 public class PaymentTransaction {
-	private String errorCode;
-	private CreditCard card;
-	private String transactionId;
-	private String transactionContent;
-	private int amount;
-	private String createdAt;
+	private final String errorCode;
+	private final CreditCard card;
+	private final String transactionId;
+	private final String transactionContent;
+	private final int amount;
+	private final String createdAt;
 	
 	public PaymentTransaction(String errorCode, CreditCard card, String transactionId, String transactionContent,
 			int amount, String createdAt) {
