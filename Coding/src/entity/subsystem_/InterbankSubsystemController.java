@@ -1,4 +1,4 @@
-package subsystem_;
+package entity.subsystem_;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonObject;
@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class InterbankSubsysController implements IInterbank {
+public class InterbankSubsystemController implements Interbank {
 
     /**
      * @param card : instance chứa thông tin thẻ người dùng

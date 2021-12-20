@@ -1,4 +1,4 @@
-package subsystem_;
+package entity.subsystem_;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
