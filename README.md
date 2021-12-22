@@ -84,5 +84,25 @@ Thành viên nhóm:
 - _Vương Xuân Hoàng_:
   * Vẽ các diagram cho phần Class Design
 - _Nguyễn Bá Tuân_:
-  * Làm phần đặc tả class
+  * Làm phần đặc tả class (Tuân bị lỗi git nên file class description do Hoàng up lên)
 ## Revisions
+- Nguyễn Đức Tú review Nguyễn Bá Tuân
+- Nguyễn Bá Tuân review Vương Xuân Hoàng
+- Vương Xuân Hoàng review Nguyễn Đức Tú
+---
+# Lab 04 - Programming and Test
+## Tasks
+- Lập trình
+- Tạo test case
+## Contributions:
+- _Nguyễn Đức Tú_:
+  * Làm phần test
+  * Code use case thuê xe
+- _Vương Xuân Hoàng_:
+  * Code use case xem xe, xem bãi xe, trả xe
+- _Nguyễn Bá Tuân_:
+  * Code phần thanh toán
+## Revisions
+- Nguyễn Đức Tú review Nguyễn Bá Tuân
+- Nguyễn Bá Tuân review Vương Xuân Hoàng
+- Vương Xuân Hoàng review Nguyễn Đức Tú
