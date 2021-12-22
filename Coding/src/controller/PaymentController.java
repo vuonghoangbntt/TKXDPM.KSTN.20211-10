@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.Hashtable;
 import java.util.Map;
 
+import java.util.regex.Pattern;
 
 /**
  * This {@code PaymentController} class control the flow of the payment process
@@ -96,5 +97,47 @@ public class PaymentController extends BaseController {
 			result.put("MESSAGE", ex.getMessage());
 		}
 		return result;
+	}
+
+	public boolean validateCardNumber(String cardNumber){
+		String CARDNUMBER_PATTERN="kstn_group[0-9]*_[0-9]{4}";
+		return Pattern.matches(CARDNUMBER_PATTERN, cardNumber);
+	}
+
+	public boolean validateHolderName(String carHolderName){
+		if(carHolderName.length() < 8) return false;
+		if(carHolderName.contains("<")) return false;
+		if(carHolderName.contains("/")) return false;
+		if(carHolderName.contains("=")) return false;
+		if(carHolderName.contains("_")) return false;
+		return true;
+	}
+
+	public boolean validateSecurityCode(String securityCode){
+		try{
+			Integer.parseInt(securityCode);
+		}catch (NumberFormatException e){
+			return false;
+		}
+		return true;
+	}
+
+	public boolean validateExpirationDate(String expirationDate){
+		String DATE_PATTERN="[0-9]{2}/[0-9]{2}";
+		if(!Pattern.matches(DATE_PATTERN, expirationDate)){
+			return false;
+		}
+		try {
+			String [] parts = expirationDate.split("/");
+			String part1 = parts[0];
+			String part2 = parts[1];
+			int day = Integer.parseInt(part1);
+			int month = Integer.parseInt(part2);
+			if(day > 31 || day < 1) return false;
+			if(month > 12 || month < 1) return false;
+		}catch (Exception e){
+			return false;
+		}
+		return true;
 	}
 }

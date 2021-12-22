@@ -19,4 +19,21 @@ public class CardLoginController extends BaseController{
         }
         return false;
     }
+
+    public boolean validateUsernameCard(String userName){
+        if(userName.length() < 8) return false;
+        if(userName.contains(" ")) return false;
+        if(userName.contains("<")) return false;
+        if(userName.contains("/")) return false;
+        if(userName.contains("=")) return false;
+        return true;
+    }
+    public boolean validatePasswordCard(String passWord){
+        if(passWord.length() < 8) return false;
+        if(passWord.contains(" ")) return false;
+        if(passWord.contains("<")) return false;
+        if(passWord.contains("/")) return false;
+        if(passWord.contains("=")) return false;
+        return true;
+    }
 }
