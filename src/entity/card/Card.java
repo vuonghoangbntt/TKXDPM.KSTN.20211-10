@@ -8,6 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
 
+/**
+ * This {@code Card} class represent card entity
+ * in our ECO BIKE Software.
+ *
+ * @author nhom10
+ *
+ */
 public class Card {
     public static Logger LOGGER = Utils.getLogger(Card.class.getName());
 
@@ -47,6 +54,13 @@ public class Card {
         this.dateExpired = dateExpired;
     }
 
+    /**
+     *
+     * @param cardCode ma cua card
+     * @param password mat khau card
+     * @return kiem tra thong tin card (boolen)
+     * @throws SQLException
+     */
     public static boolean checkCardInfo(String cardCode, String password) throws SQLException {
         String sql = "SELECT * FROM card";
         Statement stm = AIMSDB.getConnection().createStatement();
@@ -59,6 +73,13 @@ public class Card {
         return false;
     }
 
+    /**
+     *
+     * @param cardCode ma cua card
+     * @param password mat khau card
+     * @return tra ve card dang nhap neu thong tin card dung
+     * @throws SQLException
+     */
     public static Card login(String cardCode, String password) throws SQLException {
         if(true){
             String sql = "SELECT * FROM card";

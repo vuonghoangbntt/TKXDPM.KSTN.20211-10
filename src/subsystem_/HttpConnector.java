@@ -5,6 +5,13 @@ import okhttp3.*;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * This {@code HttpConnector} class setup connection
+ * in our ECO BIKE Software.
+ *
+ * @author nhom10
+ *
+ */
 @Slf4j
 public class HttpConnector {
     private final OkHttpClient client = new OkHttpClient.Builder()

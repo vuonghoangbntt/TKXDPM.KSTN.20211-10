@@ -12,6 +12,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * This {@code InterbankSubsystemController} class control the flow of payment transaction
+ * in our ECO BIKE Software.
+ *
+ * @author nhom10
+ *
+ */
 public class InterbankSubsysController implements IInterbank {
 
     /**

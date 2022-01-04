@@ -6,8 +6,20 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * This {@code ReturnBikeController} class control the flow of return bike process
+ * in our ECO BIKE Software.
+ *
+ * @author nhom10
+ *
+ */
 public class ReturnBikeController extends BaseController{
+    /**
+     *
+     * @param startTime thoi gian thue xe
+     * @param endTime thoi gian tra xe
+     * @return so tien phai tra
+     */
     public int calculateFee(String startTime, String endTime){
         // Custom date format
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");

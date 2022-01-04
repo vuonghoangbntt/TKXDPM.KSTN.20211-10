@@ -4,7 +4,13 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import lombok.extern.slf4j.Slf4j;
 
-
+/**
+ * This {@code InterbankBoundary} class connect API and process transaction
+ * in our ECO BIKE Software.
+ *
+ * @author nhom10
+ *
+ */
 @Slf4j
 public class InterbankBoundary {
     private final String base_url = "https://ecopark-system-api.herokuapp.com/";

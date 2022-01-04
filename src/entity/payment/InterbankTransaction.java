@@ -1,6 +1,12 @@
 package entity.payment;
 
-
+/**
+ * This {@code InterbankTransaction} class represent Interbank transaction entity
+ * in our ECO BIKE Software.
+ *
+ * @author nhom10
+ *
+ */
 public class InterbankTransaction {
     private String cardCode;
     private String owner;
@@ -12,7 +18,6 @@ public class InterbankTransaction {
     private String createdAt;  //format: yyyy-mm-đd hour:minute:second
 
     public InterbankTransaction(){
-
     }
 
 
