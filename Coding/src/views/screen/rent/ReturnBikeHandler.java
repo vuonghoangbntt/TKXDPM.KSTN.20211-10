@@ -62,7 +62,7 @@ public class ReturnBikeHandler extends BaseScreenHandler {
         LOGGER.info(rentTransaction.getReturnTime());
         LOGGER.info(""+(controller == null));
         //LOGGER.info(" "+controller.calculateFee("20/12/2021 17:26","20/12/2021 23:35"));
-        rentTransaction.setRentCost(controller.calculateFee(rentTransaction.getRentTime(), rentTransaction.getReturnTime()));
+        rentTransaction.setRentCost((int) controller.calculateFee(rentTransaction.getRentTime(), rentTransaction.getReturnTime()));
 
         rentBikeID.setText(Integer.toString(rentTransaction.getBikeCode()));
         rentBikeID.setEditable(false);

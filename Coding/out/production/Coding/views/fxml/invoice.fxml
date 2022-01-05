@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="RED" layoutX="213.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông tin thanh toán">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Text>
+      <Pane layoutX="41.0" layoutY="149.0" prefHeight="250.0" prefWidth="518.0">
+         <children>
+            <Text fill="#d71d1d" layoutX="13.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcode">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#d71d1d" layoutX="13.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#d71d1d" layoutX="13.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saddle">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#d71d1d" layoutX="14.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedals">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="barCode" layoutX="152.0" layoutY="2.0" prefHeight="25.0" prefWidth="340.0" text="123456" />
+            <TextField fx:id="type" layoutX="152.0" layoutY="25.0" prefHeight="25.0" prefWidth="340.0" text="Xe đạp điện" />
+            <TextField fx:id="saddle" layoutX="152.0" layoutY="49.0" prefHeight="25.0" prefWidth="340.0" text="ABC123" />
+            <TextField fx:id="pedal" layoutX="152.0" layoutY="73.0" prefHeight="25.0" prefWidth="340.0" text="2" />
+            <Button fx:id="btnPayment" defaultButton="true" layoutX="313.0" layoutY="214.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Thanh toán" textFill="#0d00ff">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCancel" defaultButton="true" layoutX="413.0" layoutY="214.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Hủy" textFill="#0d00ff">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Text fill="#d71d1d" layoutX="13.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dock ID">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#d71d1d" layoutX="13.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="License plates">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#d71d1d" layoutX="13.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Value">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#d71d1d" layoutX="14.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="dock" layoutX="152.0" layoutY="97.0" prefHeight="25.0" prefWidth="340.0" text="HUST" />
+            <TextField fx:id="licensePlates" layoutX="152.0" layoutY="120.0" prefHeight="25.0" prefWidth="340.0" text="29-T2-8888" />
+            <TextField fx:id="value" layoutX="152.0" layoutY="144.0" prefHeight="25.0" prefWidth="340.0" text="10.000.000đ" />
+            <TextField fx:id="deposit" layoutX="152.0" layoutY="168.0" prefHeight="25.0" prefWidth="340.0" text="500.000đ" />
+         </children>
+      </Pane>
+      <ImageView fx:id="capstoneImage" fitHeight="97.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="97.0" layoutY="-1.0" prefHeight="97.0" prefWidth="503.0" style="-fx-background-color: F7FF00;">
+         <children>
+            <Text fill="#12a807" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KHÔNG CÓ XE ĐI">
+               <font>
+                  <Font name="Broadway" size="27.0" />
+               </font>
+            </Text>
+            <Text fill="#12a807" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KHÔNG LO, ĐÃ CÓ ECOBIKE">
+               <font>
+                  <Font name="Broadway" size="27.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <ImageView fx:id="home" fitHeight="49.0" fitWidth="57.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rentalBike" fitHeight="49.0" fitWidth="57.0" layoutX="51.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="card" fitHeight="49.0" fitWidth="57.0" layoutX="100.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

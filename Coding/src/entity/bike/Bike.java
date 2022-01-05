@@ -72,14 +72,13 @@ public class Bike {
                     res.getInt("maxTime"), res.getInt("remainBattery"), res.getInt("numOfSeat"), res.getInt("dockID"), res.getString("bikeImage"));
             medium.add(bike);
         }
-        LOGGER.info(id+"-"+res);
         return medium;
     }
+
     public void updateStatus() throws SQLException {
         String sql = "SELECT * FROM bike WHERE bikeCode = "+id;
         Statement stm = AIMSDB.getConnection().createStatement();
         ResultSet res = stm.executeQuery(sql);
-
         if(res.next()){
             this.setStatus(res.getInt("status"));
         }
