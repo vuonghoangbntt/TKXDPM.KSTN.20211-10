@@ -48,14 +48,11 @@ public class RentHandler extends BaseScreenHandler{
     }
     private void setBarCode() {
 
-        barCode.setText(Integer.toString(bike.getId()));
+        barCode.setText(Utils.md5(Integer.toString(bike.getId())));
         barCode.setEditable(true);
 
         btnRent.setOnMouseClicked(e -> {
             try {
-                //bike.setStatus(-1);
-                //bike.rentBike();
-                //setBikeInfo();
                 LOGGER.info("User click to see invoice payment");
                 RentInfoHandler invoice = new RentInfoHandler(this.stage, Configs.INVOICE_PATH, bike);
                 invoice.setBController(new ViewBikeController());
@@ -66,6 +63,13 @@ public class RentHandler extends BaseScreenHandler{
 
             } catch (Exception ex) {
                 LOGGER.info("Rent bike failed!");
+                ex.printStackTrace();
+            }
+        });
+        btnCancle.setOnMouseClicked(e -> {
+            try{
+                this.getPreviousScreen().show();
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         });

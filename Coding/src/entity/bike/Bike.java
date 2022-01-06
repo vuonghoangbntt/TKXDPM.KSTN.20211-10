@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -19,6 +20,11 @@ import java.util.logging.Logger;
  */
 public class Bike {
     private static final Logger LOGGER = Utils.getLogger(Bike.class.getName());
+    public static final Map<String, Double> COST_SCALE = Map.of(
+            "Xe dap don", 1.0,
+            "Xe dap doi", 1.5,
+            "Xe dap dien",1.5
+    );
 
     protected Statement stm;
     protected int id;
@@ -33,6 +39,7 @@ public class Bike {
     protected int remainBattery;
     protected int numOfSeat;
     protected int dockID;
+    protected String name;
     protected String imageURL;
 
     /**
@@ -60,7 +67,7 @@ public class Bike {
      * @param imageURL hinh anh xe
      */
     public Bike(int id, String licensePlate, String type, String motor, int status, int numOfPedal, int valueOfBike,
-                int numOfSaddle, int maxTime, int remainBattery, int numOfSeat, int DockID, String imageURL){
+                int numOfSaddle, int maxTime, int remainBattery, int numOfSeat, int DockID, String imageURL, String name){
         this.id = id;
         this.licensePlate = licensePlate;
         this.type = type;
@@ -74,6 +81,7 @@ public class Bike {
         this.maxTime = maxTime;
         this.remainBattery = remainBattery;
         this.numOfSeat = numOfSeat;
+        this.name = name;
     }
 
     /**
@@ -88,8 +96,8 @@ public class Bike {
         ResultSet res = stm.executeQuery(sql);
         if(res.next()){
             return new Bike(res.getInt("bikeCode"), res.getString("licensePlate"), res.getString("type"), res.getString("motor"),
-                    res.getInt("status"), res.getInt("numOfPedal"), res.getInt("valueOfBike"), res.getInt("numOfSaddle"),
-                    res.getInt("maxTime"), res.getInt("remainBattery"), res.getInt("numOfSeat"), res.getInt("dockID"), res.getString("bikeImage"));
+                        res.getInt("status"), res.getInt("numOfPedal"), res.getInt("valueOfBike"), res.getInt("numOfSaddle"),
+                        res.getInt("maxTime"), res.getInt("remainBattery"), res.getInt("numOfSeat"), res.getInt("dockID"), res.getString("bikeImage"), res.getString("name"));
         }
         return null;
     }
@@ -106,9 +114,10 @@ public class Bike {
         ResultSet res = stm.executeQuery(sql);
         ArrayList medium = new ArrayList<>();
         while(res.next()){
+            
             Bike bike =  new Bike(res.getInt("bikeCode"), res.getString("licensePlate"), res.getString("type"), res.getString("motor"),
                     res.getInt("status"), res.getInt("numOfPedal"), res.getInt("valueOfBike"), res.getInt("numOfSaddle"),
-                    res.getInt("maxTime"), res.getInt("remainBattery"), res.getInt("numOfSeat"), res.getInt("dockID"), res.getString("bikeImage"));
+                    res.getInt("maxTime"), res.getInt("remainBattery"), res.getInt("numOfSeat"), res.getInt("dockID"), res.getString("bikeImage"), res.getString("name"));
             medium.add(bike);
         }
         LOGGER.info(id+"-"+res);
@@ -275,4 +284,11 @@ public class Bike {
         this.imageURL = imageURL;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

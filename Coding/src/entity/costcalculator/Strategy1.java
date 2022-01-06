@@ -29,9 +29,7 @@ public class Strategy1 implements RentCostCalculator {
             return 0;
         }
         long cost = (10000*hours + minutes/10*3000);
-        if(bike.getRemainBattery()<0 || bike.getNumOfSaddle()>1){
-            cost = (long) (cost*1.5);
-        }
+        cost = (long) (cost*Bike.COST_SCALE.get(bike.getType()));
         return cost;
     }
 }
