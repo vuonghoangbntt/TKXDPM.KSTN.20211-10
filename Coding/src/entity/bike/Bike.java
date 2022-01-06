@@ -10,6 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * This {@code Bike} class represent bike entity
+ * in our ECO BIKE Software.
+ *
+ * @author nhom10
+ *
+ */
 public class Bike {
     private static final Logger LOGGER = Utils.getLogger(Bike.class.getName());
 
@@ -28,10 +35,30 @@ public class Bike {
     protected int dockID;
     protected String imageURL;
 
+    /**
+     * phuong thuc ket noi den database
+     * @throws SQLException
+     */
     public Bike() throws SQLException{
         stm = AIMSDB.getConnection().createStatement();
     }
 
+    /**
+     * khoi tao entity Bike
+     * @param id id cua xe
+     * @param licensePlate bien so xe
+     * @param type loai xe
+     * @param motor kieu xe
+     * @param status trang thai xe
+     * @param numOfPedal so ban dap cua xe
+     * @param valueOfBike gia tri cua xe
+     * @param numOfSaddle so yen xe
+     * @param maxTime thoi gian su dung toi da cua xe
+     * @param remainBattery phan tram pin con lai (doi voi xe dien)
+     * @param numOfSeat so cho ngoi cua xe
+     * @param DockID id cua bai do xe
+     * @param imageURL hinh anh xe
+     */
     public Bike(int id, String licensePlate, String type, String motor, int status, int numOfPedal, int valueOfBike,
                 int numOfSaddle, int maxTime, int remainBattery, int numOfSeat, int DockID, String imageURL){
         this.id = id;
@@ -49,6 +76,12 @@ public class Bike {
         this.numOfSeat = numOfSeat;
     }
 
+    /**
+     *
+     * @param id id cua xe
+     * @return doi tuong xe voi id truyen vao
+     * @throws SQLException
+     */
     public static Bike getBikeById(int id) throws SQLException{
         String sql = "SELECT * FROM bike WHERE bikeCode = "+id;
         Statement stm = AIMSDB.getConnection().createStatement();
@@ -61,6 +94,12 @@ public class Bike {
         return null;
     }
 
+    /**
+     *
+     * @param id id bai xe
+     * @return danh sach xe trong bai xe
+     * @throws SQLException
+     */
     public static List getBikeByDockID(int id) throws SQLException{
         String sql = "SELECT * FROM bike WHERE status = 1 AND dockID = "+id;
         Statement stm = AIMSDB.getConnection().createStatement();
@@ -72,28 +111,49 @@ public class Bike {
                     res.getInt("maxTime"), res.getInt("remainBattery"), res.getInt("numOfSeat"), res.getInt("dockID"), res.getString("bikeImage"));
             medium.add(bike);
         }
+        LOGGER.info(id+"-"+res);
         return medium;
     }
 
+    /**
+     * cap nhat trang thai cac xe trong database
+     * @throws SQLException
+     */
     public void updateStatus() throws SQLException {
         String sql = "SELECT * FROM bike WHERE bikeCode = "+id;
         Statement stm = AIMSDB.getConnection().createStatement();
         ResultSet res = stm.executeQuery(sql);
+
         if(res.next()){
             this.setStatus(res.getInt("status"));
         }
     }
+
+    /**
+     * phuong thuc thue xe
+     * @throws SQLException
+     */
     public void rentBike() throws SQLException{
         String sql = "UPDATE bike SET status = -1 WHERE bikeCode = "+id;
         Statement stm = AIMSDB.getConnection().createStatement();
         stm.execute(sql);
         setStatus(-1);
     }
+
+    /**
+     * phuong thuc tra xe
+     * @throws SQLException
+     */
     public void returnBike() throws SQLException{
         String sql = "UPDATE bike SET status = 1,dockID = "+this.dockID+" WHERE bikeCode = "+this.id;
         Statement stm = AIMSDB.getConnection().createStatement();
         stm.execute(sql);
     }
+
+    /**
+     * phuong thuc lay trang thai cua xe
+     * @return
+     */
     public String getBikeStatus(){
         if(status == 1){
             return "available";
@@ -101,6 +161,7 @@ public class Bike {
             return "unavailable";
         }
     }
+
     public String getLicensePlate() {
         return licensePlate;
     }

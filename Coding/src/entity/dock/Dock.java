@@ -13,6 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * This {@code Dock} class represent dock entity
+ * in our ECO BIKE Software.
+ *
+ * @author nhom10
+ *
+ */
 public class Dock {
     private static final Logger LOGGER = Utils.getLogger(Dock.class.getName());
 
@@ -29,6 +36,16 @@ public class Dock {
         stm = AIMSDB.getConnection().createStatement();
         lstBike = new ArrayList<>();
     }
+
+    /**
+     * thong tin khoi tao cua bai xe
+     * @param id id cua bai xe
+     * @param name ten bai xe
+     * @param address dia chi bai xe
+     * @param area dien tich bai xe
+     * @param ImageURL hinh anh bai xe
+     * @throws SQLException
+     */
     public Dock(int id, String name, String address, int area, String ImageURL) throws SQLException{
         this.dockId = id;
         this.dockName = name;
@@ -37,6 +54,12 @@ public class Dock {
         this.area = area;
         this.lstBike = Bike.getBikeByDockID(id);
     }
+
+    /**
+     *
+     * @return danh sach tat ca cac bai xe
+     * @throws SQLException
+     */
     public static List getAllDock() throws SQLException {
         Statement stm = AIMSDB.getConnection().createStatement();
         ResultSet res = stm.executeQuery("select * from dock");
@@ -48,18 +71,39 @@ public class Dock {
         }
         return medium;
     }
+
+    /**
+     *
+     * @return so luong xe trong bai
+     */
     public int getTotalBikeAvailable(){
         return this.lstBike.size();
     }
+
+    /**
+     * phuong thuc them xe vao bai
+     * @param bike doi tuong xe
+     */
     public void addBike(Bike bike){
         lstBike.add(bike);
     }
+
+    /**
+     * phuong thuc xoa xe khoi bai
+     * @param bike doi tuong xe
+     */
     public void removeBike(Bike bike){
         lstBike.remove(bike);
     }
+
+    /**
+     *
+     * @return danh sach xe trong bai
+     */
     public List getListBike(){
         return lstBike;
     }
+
     public void setListBike(List lstBike){
         this.lstBike = lstBike;
     }

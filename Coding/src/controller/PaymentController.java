@@ -17,9 +17,9 @@ import java.util.regex.Pattern;
 
 /**
  * This {@code PaymentController} class control the flow of the payment process
- * in our AIMS Software.
+ * in our ECO BIKE Software.
  * 
- * @author hieud
+ * @author nhom10
  *
  */
 public class PaymentController extends BaseController {
@@ -99,11 +99,21 @@ public class PaymentController extends BaseController {
 		return result;
 	}
 
+	/**
+	 *
+	 * @param cardNumber so the cua card
+	 * @return validate so the cua card
+	 */
 	public boolean validateCardNumber(String cardNumber){
 		String CARDNUMBER_PATTERN="kstn_group[0-9]*_[0-9]{4}";
 		return Pattern.matches(CARDNUMBER_PATTERN, cardNumber);
 	}
 
+	/**
+	 *
+	 * @param carHolderName ten chu the
+	 * @return validate ten chu the
+	 */
 	public boolean validateHolderName(String carHolderName){
 		if(carHolderName.length() < 8) return false;
 		if(carHolderName.contains("<")) return false;
@@ -113,6 +123,11 @@ public class PaymentController extends BaseController {
 		return true;
 	}
 
+	/**
+	 *
+	 * @param securityCode ma bao ve
+	 * @return validate ma bao ve
+	 */
 	public boolean validateSecurityCode(String securityCode){
 		try{
 			Integer.parseInt(securityCode);
@@ -122,6 +137,11 @@ public class PaymentController extends BaseController {
 		return true;
 	}
 
+	/**
+	 *
+	 * @param expirationDate ngay het han cua card
+	 * @return validate ngay het han
+	 */
 	public boolean validateExpirationDate(String expirationDate){
 		String DATE_PATTERN="[0-9]{2}/[0-9]{2}";
 		if(!Pattern.matches(DATE_PATTERN, expirationDate)){

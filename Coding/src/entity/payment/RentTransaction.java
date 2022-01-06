@@ -11,6 +11,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Logger;
 
+/**
+ * This {@code RentTransaction} class represent Rent Transaction entity
+ * in our ECO BIKE Software.
+ *
+ * @author nhom10
+ *
+ */
 public class RentTransaction {
     public static Logger LOGGER = Utils.getLogger(RentTransaction.class.getName());
 
@@ -32,6 +39,16 @@ public class RentTransaction {
         setRentalCode();
     }
 
+    /**
+     * phuong thuc khoi tao rent transaction
+     * @param rentalCode ma thue
+     * @param rentCardCode ma card thue
+     * @param rentTime thoi gian thue
+     * @param depositeCost phi dat coc
+     * @param returnTime thoi gian tra
+     * @param bikeCode ma xe thue
+     * @param rentCost tien thue xe
+     */
     public RentTransaction(int rentalCode, String rentCardCode, String rentTime, int depositeCost, String returnTime, int bikeCode, int rentCost){
         this.rentalCode = rentalCode;
         this.rentCardCode = rentCardCode;
@@ -41,6 +58,12 @@ public class RentTransaction {
         this.bikeCode = bikeCode;
         this.rentCost = rentCost;
     }
+
+    /**
+     *
+     * @return giao dich thue xe neu thanh cong
+     * @throws SQLException
+     */
     public boolean startRent() throws SQLException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         Date date = new Date();
@@ -48,6 +71,11 @@ public class RentTransaction {
         return createRentTransaction();
     }
 
+    /**
+     * phuong thuc tao moi mot giao dich thue trong database
+     * @return thong bao thanh cong hoac that bai khi tao moi
+     * @throws SQLException
+     */
     private boolean createRentTransaction() throws SQLException {
         String sql = String.format("INSERT INTO renttransaction (rentalCode, rentCardCode, rentTime, bikeCode, depositeCost) VALUES (%d, '%s','%s',%d,%d)",this.rentalCode,this.rentCardCode, this.rentTime, this.bikeCode, this.depositeCost);
         LOGGER.info(sql);
@@ -56,6 +84,11 @@ public class RentTransaction {
         return status;
     }
 
+    /**
+     * phuong thuc xu li thoi gian thue sau khi tra xe
+     * @return
+     * @throws SQLException
+     */
     public boolean endRent() throws SQLException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         Date date = new Date();
@@ -63,6 +96,11 @@ public class RentTransaction {
         return true;
     }
 
+    /**
+     * phuong thuc cap nhat giao dich thue trong co so du lieu
+     * @return thong bao thanh cong hay that bai khi cap nhat
+     * @throws SQLException
+     */
     public boolean updateRentTransaction() throws SQLException {
         String sql = String.format("UPDATE renttransaction SET returnTime = '%s', rentCost = %d WHERE rentalCode = %d", returnTime, rentCost, rentalCode);
         LOGGER.info(sql);
@@ -75,6 +113,10 @@ public class RentTransaction {
         return rentalCode;
     }
 
+    /**
+     * set rentalCode trong co so du lieu
+     * @throws SQLException
+     */
     public void setRentalCode() throws SQLException {
         String sql = "SELECT MAX(rentalCode) as Max FROM renttransaction";
         Statement stm = AIMSDB.getConnection().createStatement();
@@ -86,6 +128,12 @@ public class RentTransaction {
         }
     }
 
+    /**
+     *
+     * @param cardCode ma cua card
+     * @return giao dich thue xe cua card
+     * @throws SQLException
+     */
     public static RentTransaction getRentTransactionByCard(String cardCode) throws SQLException{
         String sql = "SELECT * FROM renttransaction WHERE returnTime IS NULL";
         Statement stm = AIMSDB.getConnection().createStatement();
