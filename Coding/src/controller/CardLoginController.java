@@ -14,10 +14,6 @@ import java.sql.SQLException;
  */
 public class CardLoginController extends BaseController{
 
-    public boolean validateCardInfo(String cardCode, String password){
-        return true;
-    }
-
     /**
      *
      * @param cardCode so the cua card
