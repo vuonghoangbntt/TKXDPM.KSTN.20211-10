@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="RED" layoutX="213.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hóa đơn trả xe">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Text>
+      <Pane layoutX="41.0" layoutY="149.0" prefHeight="250.0" prefWidth="518.0">
+         <children>
+            <Text fill="#d71d1d" layoutX="13.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Barcode">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#d71d1d" layoutX="13.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rental Card Code">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="rentBikeID" layoutX="152.0" layoutY="2.0" prefHeight="25.0" prefWidth="340.0" text="123456" />
+            <TextField fx:id="rentCardCode" layoutX="152.0" layoutY="24.0" prefHeight="25.0" prefWidth="340.0" text="0900008" />
+            <Button fx:id="btnPayment" defaultButton="true" layoutX="313.0" layoutY="214.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Thanh toán" textFill="#0d00ff">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCancel" defaultButton="true" layoutX="413.0" layoutY="214.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Hủy" textFill="#0d00ff">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Text fill="#d71d1d" layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#d71d1d" layoutX="17.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Time">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#d71d1d" layoutX="13.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#d71d1d" layoutX="13.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="rentStartTime" layoutX="152.0" layoutY="49.0" prefHeight="25.0" prefWidth="340.0" text="29-12-2021" />
+            <TextField fx:id="rentEndTime" layoutX="152.0" layoutY="71.0" prefHeight="25.0" prefWidth="340.0" text="30-12-2021" />
+            <TextField fx:id="rentDeposit" layoutX="152.0" layoutY="96.0" prefHeight="25.0" prefWidth="340.0" text="100000 VND" />
+            <TextField fx:id="rentFee" layoutX="152.0" layoutY="121.0" prefHeight="25.0" prefWidth="340.0" text="30000 VND" />
+            <Text fill="#d71d1d" layoutX="11.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent Fee">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#d71d1d" layoutX="86.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Amount:">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Label fx:id="totalAmount" alignment="CENTER" contentDisplay="CENTER" layoutX="264.0" layoutY="168.0" prefHeight="17.0" prefWidth="99.0" text="Label" textAlignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Line endX="463.0" layoutX="55.0" layoutY="156.0" startX="-54.0000114440918" />
+         </children>
+      </Pane>
+      <ImageView fx:id="capstoneImage" fitHeight="97.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="97.0" layoutY="-1.0" prefHeight="97.0" prefWidth="503.0" style="-fx-background-color: F7FF00;">
+         <children>
+            <Text fill="#12a807" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KHÔNG CÓ XE ĐI">
+               <font>
+                  <Font name="Broadway" size="27.0" />
+               </font>
+            </Text>
+            <Text fill="#12a807" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KHÔNG LO, ĐÃ CÓ ECOBIKE">
+               <font>
+                  <Font name="Broadway" size="27.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <ImageView fx:id="home" fitHeight="49.0" fitWidth="57.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rentalBike" fitHeight="49.0" fitWidth="57.0" layoutX="51.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="card" fitHeight="49.0" fitWidth="57.0" layoutX="100.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

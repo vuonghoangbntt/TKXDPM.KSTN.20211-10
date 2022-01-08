@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="jar_files">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jar_files/junit-4.13.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jar_files/gson-2.8.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jar_files/javax.xml.bind.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jar_files/spring-web-5.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jar_files/jackson-databind-2.11.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jar_files/okhttp-3.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jar_files/jackson-annotations-2.10.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jar_files/slf4j-api-1.7.30.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jar_files/okio-1.13.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jar_files/lombok.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jar_files/jackson-core-2.10.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
