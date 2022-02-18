@@ -38,15 +38,9 @@
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="5.0" layoutY="77.0" prefHeight="21.0" prefWidth="68.0" text="Battery">
-               <font>
-                  <Font name="System Bold Italic" size="15.0" />
-               </font>
-            </Label>
             <Label fx:id="bikeSeat" layoutX="99.0" layoutY="16.0" prefHeight="17.0" prefWidth="195.0" text="2" />
             <Label fx:id="bikeType" layoutX="99.0" layoutY="37.0" prefHeight="17.0" prefWidth="195.0" text="Xe đạp Hammer X456" />
             <Label fx:id="bikeValue" layoutX="99.0" layoutY="58.0" prefHeight="17.0" prefWidth="195.0" text="1000000 VND" />
-            <Label fx:id="bikeBattery" layoutX="99.0" layoutY="79.0" prefHeight="17.0" prefWidth="195.0" text="No" />
             <Button fx:id="bikeView" alignment="CENTER" layoutX="99.0" layoutY="116.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="97.0" style="-fx-cursor: hand;" text="Details" />
          </children>
       </Pane>

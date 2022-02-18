@@ -54,12 +54,16 @@ public class RentHandler extends BaseScreenHandler{
         btnRent.setOnMouseClicked(e -> {
             try {
                 LOGGER.info("User click to see invoice payment");
-                RentInfoHandler invoice = new RentInfoHandler(this.stage, Configs.INVOICE_PATH, bike);
-                invoice.setBController(new ViewBikeController());
-                invoice.setScreenTitle("Invoice");
-                invoice.setPreviousScreen(this);
-                invoice.setHomeScreenHandler(this.homeScreenHandler);
-                invoice.show();
+                if(Configs.rentTransaction!=null){
+                    PopupScreen.error("You already rent a bike!!!");
+                }else {
+                    RentInfoHandler invoice = new RentInfoHandler(this.stage, Configs.INVOICE_PATH, bike);
+                    invoice.setBController(new ViewBikeController());
+                    invoice.setScreenTitle("Invoice");
+                    invoice.setPreviousScreen(this);
+                    invoice.setHomeScreenHandler(this.homeScreenHandler);
+                    invoice.show();
+                }
 
             } catch (Exception ex) {
                 LOGGER.info("Rent bike failed!");
