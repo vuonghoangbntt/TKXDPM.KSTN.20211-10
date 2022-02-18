@@ -20,27 +20,25 @@ import java.util.logging.Logger;
  */
 public class Bike {
     private static final Logger LOGGER = Utils.getLogger(Bike.class.getName());
-    public static final Map<String, Double> COST_SCALE = Map.of(
-            "Xe dap don", 1.0,
-            "Xe dap doi", 1.5,
-            "Xe dap dien",1.5
-    );
 
     protected Statement stm;
     protected int id;
     protected String licensePlate;
-    protected String type;
-    protected String motor;
     protected int status;
     protected int numOfPedal;
     protected int valueOfBike;
     protected int numOfSaddle;
-    protected int maxTime;
-    protected int remainBattery;
     protected int numOfSeat;
     protected int dockID;
+    protected String type;
     protected String name;
     protected String imageURL;
+
+    public float getCostScale() {
+        return costScale;
+    }
+
+    protected float costScale;
 
     /**
      * phuong thuc ket noi den database
@@ -55,73 +53,41 @@ public class Bike {
      * @param id id cua xe
      * @param licensePlate bien so xe
      * @param type loai xe
-     * @param motor kieu xe
      * @param status trang thai xe
      * @param numOfPedal so ban dap cua xe
      * @param valueOfBike gia tri cua xe
      * @param numOfSaddle so yen xe
-     * @param maxTime thoi gian su dung toi da cua xe
-     * @param remainBattery phan tram pin con lai (doi voi xe dien)
      * @param numOfSeat so cho ngoi cua xe
      * @param DockID id cua bai do xe
      * @param imageURL hinh anh xe
      */
-    public Bike(int id, String licensePlate, String type, String motor, int status, int numOfPedal, int valueOfBike,
-                int numOfSaddle, int maxTime, int remainBattery, int numOfSeat, int DockID, String imageURL, String name){
+    public Bike(int id, String licensePlate, String type, int status, int numOfPedal, int valueOfBike,
+                int numOfSaddle, int numOfSeat, int DockID, String imageURL, String name){
         this.id = id;
         this.licensePlate = licensePlate;
         this.type = type;
         this.dockID = DockID;
         this.imageURL = imageURL;
-        this.motor = motor;
         this.status = status;
         this.numOfPedal = numOfPedal;
         this.valueOfBike = valueOfBike;
         this.numOfSaddle = numOfSaddle;
-        this.maxTime = maxTime;
-        this.remainBattery = remainBattery;
         this.numOfSeat = numOfSeat;
         this.name = name;
     }
 
-    /**
-     *
-     * @param id id cua xe
-     * @return doi tuong xe voi id truyen vao
-     * @throws SQLException
-     */
-    public static Bike getBikeById(int id) throws SQLException{
-        String sql = "SELECT * FROM bike WHERE bikeCode = "+id;
-        Statement stm = AIMSDB.getConnection().createStatement();
-        ResultSet res = stm.executeQuery(sql);
-        if(res.next()){
-            return new Bike(res.getInt("bikeCode"), res.getString("licensePlate"), res.getString("type"), res.getString("motor"),
-                        res.getInt("status"), res.getInt("numOfPedal"), res.getInt("valueOfBike"), res.getInt("numOfSaddle"),
-                        res.getInt("maxTime"), res.getInt("remainBattery"), res.getInt("numOfSeat"), res.getInt("dockID"), res.getString("bikeImage"), res.getString("name"));
-        }
-        return null;
-    }
-
-    /**
-     *
-     * @param id id bai xe
-     * @return danh sach xe trong bai xe
-     * @throws SQLException
-     */
-    public static List getBikeByDockID(int id) throws SQLException{
-        String sql = "SELECT * FROM bike WHERE status = 1 AND dockID = "+id;
-        Statement stm = AIMSDB.getConnection().createStatement();
-        ResultSet res = stm.executeQuery(sql);
-        ArrayList medium = new ArrayList<>();
-        while(res.next()){
-            
-            Bike bike =  new Bike(res.getInt("bikeCode"), res.getString("licensePlate"), res.getString("type"), res.getString("motor"),
-                    res.getInt("status"), res.getInt("numOfPedal"), res.getInt("valueOfBike"), res.getInt("numOfSaddle"),
-                    res.getInt("maxTime"), res.getInt("remainBattery"), res.getInt("numOfSeat"), res.getInt("dockID"), res.getString("bikeImage"), res.getString("name"));
-            medium.add(bike);
-        }
-        LOGGER.info(id+"-"+res);
-        return medium;
+    public Bike(ResultSet res) throws SQLException {
+        this.id = res.getInt("bikeCode");
+        this.licensePlate = res.getString("licensePlate");
+        this.type = res.getString("type");
+        this.dockID = res.getInt("dockID");
+        this.imageURL = res.getString("bikeImage");
+        this.status = res.getInt("status");
+        this.numOfPedal = res.getInt("numOfPedal");
+        this.valueOfBike = res.getInt("valueOfBike");
+        this.numOfSaddle = res.getInt("numOfSaddle");
+        this.numOfSeat = res.getInt("numOfSeat");
+        this.name = res.getString("name");
     }
 
     /**
@@ -129,13 +95,7 @@ public class Bike {
      * @throws SQLException
      */
     public void updateStatus() throws SQLException {
-        String sql = "SELECT * FROM bike WHERE bikeCode = "+id;
-        Statement stm = AIMSDB.getConnection().createStatement();
-        ResultSet res = stm.executeQuery(sql);
-
-        if(res.next()){
-            this.setStatus(res.getInt("status"));
-        }
+        this.status = BikeDAO.getBikeStatusByID(this.id);
     }
 
     /**
@@ -143,9 +103,7 @@ public class Bike {
      * @throws SQLException
      */
     public void rentBike() throws SQLException{
-        String sql = "UPDATE bike SET status = -1 WHERE bikeCode = "+id;
-        Statement stm = AIMSDB.getConnection().createStatement();
-        stm.execute(sql);
+        BikeDAO.updateBIkeStatus(id,-1);
         setStatus(-1);
     }
 
@@ -154,9 +112,8 @@ public class Bike {
      * @throws SQLException
      */
     public void returnBike() throws SQLException{
-        String sql = "UPDATE bike SET status = 1,dockID = "+this.dockID+" WHERE bikeCode = "+this.id;
-        Statement stm = AIMSDB.getConnection().createStatement();
-        stm.execute(sql);
+        BikeDAO.updateBIkeStatus(id,1);
+        setStatus(1);
     }
 
     /**
@@ -171,20 +128,15 @@ public class Bike {
         }
     }
 
+    public String getAdvancedInfo(){
+        return "Không";
+    }
     public String getLicensePlate() {
         return licensePlate;
     }
 
     public void setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
-    }
-
-    public Statement getStm() {
-        return stm;
-    }
-
-    public void setStm(Statement stm) {
-        this.stm = stm;
     }
 
     public int getId() {
@@ -195,21 +147,12 @@ public class Bike {
         this.id = id;
     }
 
-
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getMotor() {
-        return motor;
-    }
-
-    public void setMotor(String motor) {
-        this.motor = motor;
     }
 
     public int getStatus() {
@@ -242,22 +185,6 @@ public class Bike {
 
     public void setNumOfSaddle(int numOfSaddle) {
         this.numOfSaddle = numOfSaddle;
-    }
-
-    public int getMaxTime() {
-        return maxTime;
-    }
-
-    public void setMaxTime(int maxTime) {
-        this.maxTime = maxTime;
-    }
-
-    public int getRemainBattery() {
-        return remainBattery;
-    }
-
-    public void setRemainBattery(int remainBattery) {
-        this.remainBattery = remainBattery;
     }
 
     public int getNumOfSeat() {

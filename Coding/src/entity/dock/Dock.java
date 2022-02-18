@@ -1,6 +1,7 @@
 package entity.dock;
 
 import entity.bike.Bike;
+import entity.bike.BikeHandler;
 import entity.db.AIMSDB;
 import utils.Utils;
 
@@ -52,7 +53,7 @@ public class Dock {
         this.address = address;
         this.imageURL = ImageURL;
         this.area = area;
-        this.lstBike = Bike.getBikeByDockID(id);
+        this.lstBike = BikeHandler.getBikeByDockID(id);
     }
 
     /**

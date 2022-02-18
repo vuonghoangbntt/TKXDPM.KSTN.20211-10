@@ -4,6 +4,7 @@ import controller.BaseController;
 import controller.CardLoginController;
 import controller.ViewCardController;
 import entity.bike.Bike;
+import entity.bike.BikeHandler;
 import entity.payment.RentTransaction;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -68,7 +69,7 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 				if(Configs.card!=null && Configs.bike==null){
 					Configs.rentTransaction = RentTransaction.getRentTransactionByCard(Configs.card.getCardCode());
 					if(Configs.rentTransaction!=null) {
-						Configs.bike = Bike.getBikeById(Configs.rentTransaction.getBikeCode());
+						Configs.bike = BikeHandler.getBikeById(Configs.rentTransaction.getBikeCode());
 					}
 				}
 				if(Configs.card==null){

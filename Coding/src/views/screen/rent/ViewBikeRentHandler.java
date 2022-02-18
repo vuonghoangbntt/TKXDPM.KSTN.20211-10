@@ -4,6 +4,7 @@ import controller.ReturnBikeController;
 import entity.bike.Bike;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -42,19 +43,16 @@ public class ViewBikeRentHandler extends BaseScreenHandler {
     private TextField bikeSaddle;
 
     @FXML
-    private TextField bikeMaxTime;
-
-    @FXML
     private TextField bikeSeats;
 
     @FXML
     private TextField bikeStatus;
 
     @FXML
-    private TextField bikeBattery;
+    private Button btnReturnBike;
 
     @FXML
-    private Button btnReturnBike;
+    private TextArea advancedInfo;
 
     private Bike bike;
 
@@ -77,21 +75,11 @@ public class ViewBikeRentHandler extends BaseScreenHandler {
         bikeImage.setFitWidth(186);
         bikeImage.setImage(image);
 
-        if(bike.getRemainBattery()>=0) {
-            bikeBattery.setText(bike.getRemainBattery()+"%");
-        }else{
-            bikeBattery.setText("No battery");
-        }
-        bikeBattery.setEditable(false);
-
-        bikeID.setText(Integer.toString(bike.getId()));
+        bikeID.setText(Utils.md5(Integer.toString(bike.getId())));
         bikeID.setEditable(false);
 
         bikeSaddle.setText(Integer.toString(bike.getNumOfSaddle()));
         bikeSaddle.setEditable(false);
-
-        bikeMaxTime.setText(bike.getMaxTime()+" mins");
-        bikeMaxTime.setEditable(false);
 
         bikePedals.setText(bike.getNumOfPedal()+" pedals");
         bikePedals.setEditable(false);
@@ -107,6 +95,9 @@ public class ViewBikeRentHandler extends BaseScreenHandler {
 
         bikeStatus.setText(Configs.rentTransaction.getRentTime());
         bikeStatus.setEditable(false);
+
+        advancedInfo.setText(bike.getAdvancedInfo());
+        advancedInfo.setEditable(false);
 
         btnReturnBike.setOnMouseClicked(e -> {
             try{

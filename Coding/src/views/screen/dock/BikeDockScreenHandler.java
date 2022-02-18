@@ -29,9 +29,6 @@ public class BikeDockScreenHandler extends FXMLScreenHandler {
     protected Label bikeValue;
 
     @FXML
-    protected Label bikeBattery;
-
-    @FXML
     protected Button bikeView;
 
     private static final Logger LOGGER = Utils.getLogger(BikeDockScreenHandler.class.getName());
@@ -61,9 +58,7 @@ public class BikeDockScreenHandler extends FXMLScreenHandler {
         bikeImage.setImage(image);
 
         bikeSeat.setText(Integer.toString(bike.getNumOfSeat()));
-        if(bike.getRemainBattery()>=0) {
-            bikeBattery.setText(Integer.toString(bike.getRemainBattery()));
-        }
+
         bikeType.setText(bike.getType());
         bikeValue.setText(Integer.toString(bike.getValueOfBike()));
     }

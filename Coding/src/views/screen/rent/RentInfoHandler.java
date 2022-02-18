@@ -71,7 +71,7 @@ public class RentInfoHandler extends BaseScreenHandler {
     }
 
     private void setInvoiceInfo() {
-        barCode.setText(Integer.toString(bike.getId()));
+        barCode.setText(Utils.md5(Integer.toString(bike.getId())));
         barCode.setEditable(false);
 
         saddle.setText(Integer.toString(bike.getNumOfSaddle()));
@@ -102,6 +102,7 @@ public class RentInfoHandler extends BaseScreenHandler {
                 rentTransaction.setBikeCode(bike.getId());
                 rentTransaction.setDepositeCost(bike.getValueOfBike()*4/10);
                 rentTransaction.setRentCardCode(Configs.card.getCardCode());
+                Configs.rentTransaction = rentTransaction;
 
                 PaymentScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN, rentTransaction);
                 paymentScreen.setBController(new PaymentController());

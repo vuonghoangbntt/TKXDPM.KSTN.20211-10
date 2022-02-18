@@ -195,5 +195,4 @@ public class RentTransaction {
         this.rentCardCode = rentCardCode;
     }
 
-
 }

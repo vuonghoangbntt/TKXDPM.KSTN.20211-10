@@ -4,6 +4,9 @@ import utils.Utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
@@ -34,7 +37,30 @@ public class AIMSDB {
         } 
         return connect;
     }
-    
+
+    public static void execute(String command){
+        LOGGER.info("Executing command: \n" + command);
+        try{
+            Statement stm = connect.createStatement();
+            stm.execute(command);
+            LOGGER.info("Successfully execute command: " + command);
+        } catch (Exception e){
+            LOGGER.info("Fail to execute command: \n" + command);
+            e.printStackTrace();
+        }
+    }
+
+    public static ResultSet query(String command){
+        try{
+            Statement stmt = connect.createStatement();
+            ResultSet rs = stmt.executeQuery(command);
+            return rs;
+        }catch (Exception e){
+            LOGGER.info("Failed to execute command: " + command);
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public static void main(String[] args) {
         AIMSDB.getConnection();

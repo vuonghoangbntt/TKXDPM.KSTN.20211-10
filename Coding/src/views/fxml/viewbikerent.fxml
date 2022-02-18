@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -63,37 +64,31 @@
                      </font>
                   </Text>
                   <TextField fx:id="bikePedals" layoutX="95.0" layoutY="84.0" prefHeight="25.0" prefWidth="251.0" text="4" />
-                  <Text fill="#d71d1d" layoutX="6.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery">
+                  <Text fill="#d71d1d" layoutX="15.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seats">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="bikeBattery" layoutX="95.0" layoutY="156.0" prefHeight="25.0" prefWidth="251.0" text="100000 VND" />
-                  <Text fill="#d71d1d" layoutX="9.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seats">
+                  <TextField fx:id="bikeSeats" layoutX="95.0" layoutY="131.0" prefHeight="25.0" prefWidth="251.0" text="1" />
+                  <Text fill="#d71d1d" layoutX="5.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="bikeSeats" layoutX="95.0" layoutY="181.0" prefHeight="25.0" prefWidth="251.0" text="1" />
-                  <Text fill="#d71d1d" layoutX="9.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="bikeStatus" layoutX="95.0" layoutY="208.0" prefHeight="25.0" prefWidth="251.0" text="Free" />
+                  <TextField fx:id="bikeStatus" layoutX="95.0" layoutY="156.0" prefHeight="25.0" prefWidth="251.0" text="Free" />
                   <TextField fx:id="bikeSaddle" layoutX="95.0" layoutY="109.0" prefHeight="25.0" prefWidth="251.0" text="2" />
                   <Text fill="#d71d1d" layoutX="12.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saddle">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="#d71d1d" layoutX="1.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Time">
+                  <Button fx:id="btnReturnBike" layoutX="277.0" layoutY="260.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Trả xe" />
+                  <Text fill="#d71d1d" layoutX="-2.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional Info" textAlignment="CENTER" wrappingWidth="85.52606964111328">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="bikeMaxTime" layoutX="95.0" layoutY="131.0" prefHeight="25.0" prefWidth="251.0" text="2" />
-                  <Button fx:id="btnReturnBike" layoutX="274.0" layoutY="248.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Trả xe" />
+                  <TextArea fx:id="advancedInfo" layoutX="95.0" layoutY="180.0" prefHeight="78.0" prefWidth="251.0" />
                </children>
             </Pane>
          </children>
